@@ -15,11 +15,12 @@ int acceptable(char * chr){
 char * clean(char * str){
   int i = 0;
   while(i < strlen(str)){
-    if(!acceptable(str[i])){
+    if(!acceptable(str[i])||(str[i]==' '&&(str[i+1]==' '||str[i+1]=='\n'))){
       memmove(&str[i], &str[i + 1], strlen(str) - i);
       i--;
-    }
+    }else{
     i++;
+    }
   }
   return str;
 }
